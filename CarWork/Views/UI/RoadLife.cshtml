@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "RoadLife";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/RoadStyle.css">
+    <script defer src="~/js/carWorkJs.js"></script>
+}
+<div id="container" class="container">
+    <div id = "map" class="map">
+        <img class="road" src="~/img/Road.jpg" />
+
+        @*<img id="child" class="child" src="~/img/deliveryOrder.png" />*@
+        @*<img id="delivery" class="delivery" src="~/img/deliveryOrder.png" />*@
+    </div>
+    <div class="container-info">
+        <div id="inform" class="inform">
+            <p>Info to driver</p>
+        </div>
+
+        <div id="btn" class="btn">
+            <button id="btn" class="btn btn-add" name="button">ADD Driver</button>
+            <button id="btn" class="btn btn-update" name="button">Update Driver</button>
+            <button id="btn" class="btn btn-delete" name="button">Delete Driver</button>
+        </div>
+    </div>
+</div>

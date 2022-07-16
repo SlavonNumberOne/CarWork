@@ -1,0 +1,76 @@
+﻿.map {
+    display: flex;
+}
+.container {
+    width: 100%;
+    height: 100%;
+}
+img.road {
+    width: 100%;
+    height: 400px;
+}
+
+.fuel{
+    width: 50px;
+    height: 40px;
+    background-color: black;
+    position: absolute;
+    text-align: center;
+    color: white;
+
+}
+
+img.car{
+    width: 60px;
+    height: 40px;
+    position:absolute;
+}
+
+.car-left {
+    top: 100px;
+    transform: rotate(180deg);
+}
+.car-right {
+    top: 280px;
+}
+
+.container-info {
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+div#inform {
+    border: 2px solid black;
+    width: 900px;
+    height: 296px;
+    background: #cbf2f1;
+}
+div#btn {
+    
+    width: 650px;
+    height: 300px;
+    text-align: end;
+    position: relative;
+    left: 1px;
+}
+button#btn {
+    width: 634px;
+    display: block;
+    height: 100px;
+    background: #cbf2f1;
+    transition-duration: 0.4s;
+    cursor:pointer;
+}
+    button#btn:hover{
+        background:white;
+    }
+.child {
+    width: 20px;
+    height: 21px;
+    position: absolute;
+  
+}
+.delivery {
+    width: 20px;
+    height: 20px;
+    position: absolute;
