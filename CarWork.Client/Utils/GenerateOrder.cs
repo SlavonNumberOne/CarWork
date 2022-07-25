@@ -7,18 +7,28 @@ namespace CarWork.Client.Utils
     {
         public static DeliveryOrder Generate()
         {
-            var passenger = GeneratePassenger.Generate();
-            var deliveryLocation = DeliveryLocationGenerate();
-             
-            return new DeliveryOrder()
+            try
             {
-                Id = Guid.NewGuid().ToString(),
-                Passenger = passenger,
-                //Car = car;
-                StatusOrder = Enums.StatusOrder.Created,
-                DeliveryLocation = deliveryLocation,
-                Price = PriceGenerate(passenger.Location, deliveryLocation)
-            };
+                var passenger = GeneratePassenger.Generate();
+                var deliveryLocation = DeliveryLocationGenerate();
+                return new DeliveryOrder()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Passenger = passenger,
+                    //Car = car;
+                    StatusOrder = Enums.StatusOrder.Created,
+                    DeliveryLocation = deliveryLocation,
+                    Price = PriceGenerate(passenger.Location, deliveryLocation)
+                };
+            }
+            catch (Exception ex)
+            {
+                var exception = ex;
+                return null;
+            }
+            
+             
+            
         }
 
         public static int DeliveryLocationGenerate()

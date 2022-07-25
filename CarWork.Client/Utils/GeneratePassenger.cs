@@ -10,7 +10,6 @@ namespace CarWork.Client.Utils
         {
             return new Passenger()
             {
-                Id = Guid.NewGuid().ToString(),
                 Name = NameGenerate(),
                 Location = LocationGenerate()
             };

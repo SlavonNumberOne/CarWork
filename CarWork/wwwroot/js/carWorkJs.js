@@ -23,12 +23,12 @@ const addDriver = (driver) => {
 
 }
 
-const addFuel = (refuiling) => {
+const addFuel = (refuieling) => {
     const fuelElement = document.createElement("div");
     fuelElement.classList.add("fuel");
-    fuelElement.id = "f-" + refuiling.id;
-    fuelElement.style.left = (refuiling.location * 0.5) + "%";
-    fuelElement.innerHTML = refuiling.name;
+    fuelElement.id = "f-" + refuieling.id;
+    fuelElement.style.left = (refuieling.location * 0.5) + "%";
+    fuelElement.innerHTML = refuieling.name;
     const ramdomValue = Math.random();
     if (ramdomValue > 0.5) {
         fuelElement.style.top = "20px";
@@ -36,7 +36,7 @@ const addFuel = (refuiling) => {
     else {
         fuelElement.style.top = "350px";
     } 
-    currentRefuielingIds.push(refuiling.id);
+    currentRefuielingIds.push(refuieling.id);
     mapElement.appendChild(fuelElement);
 }
 
@@ -45,7 +45,7 @@ const addOrder = (deliveryOrder) => {
     clientElement.classList.add("child");
     clientElement.id = "c-" + deliveryOrder.id;
     clientElement.src = "/img/05.png";
-    clientElement.style.left = (deliveryOrder.client.location * 0.5) + "%";
+    clientElement.style.left = (deliveryOrder.passenger.location * 0.5) + "%";
 
     const deliveryElement = document.createElement("img");
     deliveryElement.classList.add("delivery");
@@ -107,7 +107,7 @@ const updateDriver = (driver) => {
     }
 }
 
-const updateFuel = (refuiling) => {
+const updateFuel = (refuieling) => {
 
 }
 
@@ -141,21 +141,21 @@ const updateMapDrivers = (drivers) => {
     }
 }
 
-const updateMapFuels = (refuilings) => {
-    const fuelsToUpdate = refuilings.filter(f => currentRefuielingIds.includes(f.id));
-    const fuelsToAdd = refuilings.filter(f => !currentRefuielingIds.includes(f.id));
+const updateMapFuels = (refuielings) => {
+    const fuelsToUpdate = refuielings.filter(f => currentRefuielingIds.includes(f.id));
+    const fuelsToAdd = refuielings.filter(f => !currentRefuielingIds.includes(f.id));
 
-    const newFuelIds = refuilings.map(f => f.id);
+    const newFuelIds = refuielings.map(f => f.id);
     const fuelIdsToDelete = currentRefuielingIds.filter(id => !newFuelIds.includes(id));
 
-    for (let refuiling of fuelsToUpdate) {
-        updateFuel(refuiling);
+    for (let refuieling of fuelsToUpdate) {
+        updateFuel(refuieling);
     }
-    for (let refuiling of fuelsToAdd) {
-        addFuel(refuiling);
+    for (let refuieling of fuelsToAdd) {
+        addFuel(refuieling);
     }
-    for (let refuilingId of fuelIdsToDelete) {
-        deleteFuel(refuilingId);
+    for (let refuielingId of fuelIdsToDelete) {
+        deleteFuel(refuielingId);
     }
 }
 
@@ -177,18 +177,7 @@ const updateMapOrder = (deliveryOrders) => {
     }
 }
 
-const AddNewCarElement = () => {
-    const carNewElement = document.createElement("div");
-    carNewElement.classList.add("container-info");
 
-    const carButtonAddElement = document.createElement("button");
-    carButtonAddElement.classList.add("btn", "btn-add");
-    carButtonAddElement.innerHTML = "Add";
-
-    const carButtonDeleteElement = document.createElement("button");
-    carButtonAddElement.classList.add("btn", "btn-delete");
-    carButtonAddElement.innerHTML = "Delete";
-}
 
 const signalRConnection = new signalR.HubConnectionBuilder()
     .withUrl(`/carworkhub`)

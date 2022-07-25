@@ -39,7 +39,7 @@ namespace CarWork.Client.Models
         /// </summary>
         public decimal NeedCapacity { get; set; }
         
-        public RefuelOrder(string id, Driver driverClient, TankerDriver excecutor, StatusOrder statusOrder,  decimal price, TypeFuel typeFuel, decimal needCapacity)
+        public RefuelOrder(Driver driverClient, TankerDriver excecutor, StatusOrder statusOrder,  decimal price, TypeFuel typeFuel, decimal needCapacity)
         {
             Id = Guid.NewGuid().ToString();
             DriverClient = driverClient;
