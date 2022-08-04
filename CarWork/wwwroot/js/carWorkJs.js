@@ -1,4 +1,5 @@
-﻿const currentRefuielingIds = [];
+﻿
+const currentRefuielingIds = [];
 const currentDriverIds = [];
 const currentDeliveryOrderIds = [];
 
@@ -101,9 +102,12 @@ const updateDriver = (driver) => {
     driverElement.style.left = (driver.car.location * 0.5) + "%";
     if (driver.operation.direction == 0) {
         driverElement.classList.add("car-left");
+        driverElement.classList.remove("car-right");
     }
     else {
         driverElement.classList.add("car-right");
+        driverElement.classList.remove("car-left");
+
     }
 }
 
@@ -113,7 +117,7 @@ const updateFuel = (refuieling) => {
 
 const updateOrder = (deliveryOrder) => {
     if (deliveryOrder.statusOrder < 3) {
-        document.getElementById("c-" + id).style.display = "none";
+        document.getElementById("c-" + deliveryOrder.id).style.display = "none";
     }
 }
 
@@ -200,7 +204,14 @@ const startSignalRConnection = async () => {
 
 startSignalRConnection();
 
-const newArrayMap = () => {
-
-
+function newOrderClick() {
+    fetch("api/orders/create", {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }
