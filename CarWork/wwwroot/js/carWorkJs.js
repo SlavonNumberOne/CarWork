@@ -21,7 +21,7 @@ const addDriver = (driver) => {
     currentDriverIds.push(driver.id);
 
     mapElement.appendChild(mapCarElement);
-
+    infoElement(driver);
 }
 
 const addFuel = (refuieling) => {
@@ -103,6 +103,7 @@ const updateDriver = (driver) => {
     if (driver.operation.direction == 0) {
         driverElement.classList.add("car-left");
         driverElement.classList.remove("car-right");
+
     }
     else {
         driverElement.classList.add("car-right");
@@ -136,6 +137,7 @@ const updateMapDrivers = (drivers) => {
 
     for (let driver of driversToUpdate) {
         updateDriver(driver);
+        updateInfoDriver(driver);
     }
     for (let driver of driversToAdd) {
         addDriver(driver);
@@ -143,6 +145,8 @@ const updateMapDrivers = (drivers) => {
     for (let driverId of driverIdsToDelete) {
         deleteDriver(driverId);
     }
+
+    
 }
 
 const updateMapFuels = (refuielings) => {
@@ -214,4 +218,53 @@ function newOrderClick() {
             'Content-Type': 'application/json'
         }
     });
+}
+
+const infoElement = (driver) => {
+    const infoMessegeElement = document.getElementById("b");
+    
+    const driverElement = document.createElement("div");
+    driverElement.classList.add("new");
+
+    const nameHeaderElement = document.createElement("div");
+    nameHeaderElement.classList.add( "driver-name");
+    nameHeaderElement.id = "nm-" + driver.id;
+    nameHeaderElement.innerHTML = "Name: " + driver.name;
+
+    const moneyElement = document.createElement("div");
+    moneyElement.classList.add("money");
+    moneyElement.id = "mon-" + driver.id;
+    moneyElement.innerHTML = "Money: " + driver.money + "грн";
+
+    const orderStatusElement = document.createElement("div");
+    orderStatusElement.classList.add("status");
+    orderStatusElement.id = "ord-" + driver.id;
+    orderStatusElement.innerHTML = "Status: " + driver.operation.status;
+
+    const carFuelCapacityElement = document.createElement("div");
+    carFuelCapacityElement.classList.add("carFuelCapacity");
+    carFuelCapacityElement.id = "ful-" + driver.id;
+    carFuelCapacityElement.innerHTML = "Fuel: " + driver.car.fuelCapacity;
+
+    driverElement.appendChild(nameHeaderElement);
+    driverElement.appendChild(moneyElement);
+    driverElement.appendChild(orderStatusElement);
+    driverElement.appendChild(carFuelCapacityElement);
+
+    infoMessegeElement.appendChild(driverElement);
+}
+
+const updateInfoDriver = (driver) => {
+    const nameNewElement = document.getElementById("nm-" + driver.id);
+    nameNewElement.innerHTML = "Name: " + driver.name;
+
+    const moneyNewElement = document.getElementById("mon-" + driver.id);
+    moneyNewElement.innerHTML = "Money: " + driver.money + "грн";
+
+    const orderNewElement = document.getElementById("ord-" + driver.id);
+    orderNewElement.innerHTML = "Status: " + driver.operation.status;
+
+    const fuelNewElement = document.getElementById("ful-" + driver.id);
+    fuelNewElement.innerHTML = "Fuel: " + driver.car.fuelCapacity;
+
 }

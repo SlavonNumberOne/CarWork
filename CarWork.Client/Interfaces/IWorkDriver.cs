@@ -5,6 +5,7 @@ namespace CarWork.Client.Interface
 {
     public interface IWorkDriver
     {
+        string Id { get; set; }  
         bool WaitingForFuel { get; set; }
 
         string Token { get; }

@@ -44,6 +44,7 @@ div#inform {
     width: 900px;
     height: 296px;
     background: #cbf2f1;
+    
 }
 div#btn {
     
@@ -99,3 +100,19 @@ button#btn-delete {
     width: 20px;
     height: 20px;
     position: absolute;
+}
+.new {
+    width: 200px;
+    height: 75px;
+    border: 1px solid;
+    margin: 10px;
+    padding: 10px;
+}
+.name {
+    text-align: end;
+    font-size: 20px;
+    font-weight: 700;
+}
+.b{
+    display:flex;
+}

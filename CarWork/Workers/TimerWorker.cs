@@ -34,23 +34,26 @@ namespace CarWork.Client
             var car = new Car(ModelCar.Nisan, TypeCar.Pickup, 45m, 5m, engine, 10.2m, 67, TypeFuel.Oil, 0);
             var driver = new TaxiDriver("Oleg", car, 2m, 23, SexType.Male, 5000m);
 
-            //var engine1 = new Engine(TypeFuel.Dizel, 2.8m);
-            //var car1 = new Car(ModelCar.Toyota, TypeCar.Minivan, 50m, 50m, engine1, 9.6m, 20, TypeFuel.Dizel, 20);
-            //var driver1 = new TaxiDriver("Bob", car1, 6m, 50, SexType.Male, 5000m);
+            var engine1 = new Engine(TypeFuel.Dizel, 2.8m);
+            var car1 = new Car(ModelCar.Toyota, TypeCar.Minivan, 50m, 50m, engine1, 9.6m, 20, TypeFuel.Dizel, 20);
+            var driver1 = new TaxiDriver("Bob", car1, 6m, 50, SexType.Male, 5000m);
 
             map.Cars.Add(car);
-            //map.Cars.Add(car1);
+            map.Cars.Add(car1);
             map.WorkDrivers.Add(driver);
-            //map.WorkDrivers.Add(driver1);
+            map.WorkDrivers.Add(driver1);
 
             map.DeliveryOrders.Add(GenerateOrder.Generate());
             map.DeliveryOrders.Add(GenerateOrder.Generate());
+
+           
         }
 
         private async void StepStart(object sender, ElapsedEventArgs e)
         {
             lock (_locker)
             {
+             
                 //Console.WriteLine("Start");
                 //IWorkDriver driver = new Driver();
                 foreach (var driver in Map.GetInstance().WorkDrivers)

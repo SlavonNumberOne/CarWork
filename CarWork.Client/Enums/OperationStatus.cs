@@ -1,6 +1,9 @@
-﻿namespace CarWork.Client.Enums
-{
+﻿using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
+namespace CarWork.Client.Enums
+{
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum OperationStatus
     {
         /// <summary>
