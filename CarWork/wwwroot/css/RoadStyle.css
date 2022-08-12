@@ -39,57 +39,22 @@ img.car{
     height: 300px;
     display: flex;
 }
-div#inform {
-    border: 2px solid black;
-    width: 900px;
-    height: 296px;
-    background: #cbf2f1;
-    
-}
-div#btn {
-    
-    width: 650px;
-    height: 300px;
-    text-align: end;
-    position: relative;
-    left: 1px;
-}
+
+
 button#btn-add {
-    width: 634px;
-    display: block;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     background: #cbf2f1;
     transition-duration: 0.4s;
-    cursor:pointer;
+    cursor: pointer;
+    position: absolute;
+    top: 655px;
+    left: 92.5%;
 }
     button#btn-add:hover{
         background:white;
     }
-button#btn-update {
-    width: 634px;
-    display: block;
-    height: 100px;
-    background: #cbf2f1;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
 
-    button#btn-update:hover {
-        background: white;
-    }
-
-button#btn-delete {
-    width: 634px;
-    display: block;
-    height: 100px;
-    background: #cbf2f1;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-    button#btn-delete:hover {
-        background: white;
-    }
 .child {
     width: 20px;
     height: 21px;
@@ -108,11 +73,48 @@ button#btn-delete {
     margin: 10px;
     padding: 10px;
 }
-.name {
-    text-align: end;
-    font-size: 20px;
-    font-weight: 700;
+.inform {
+    border: 2px solid black;
+    width: 100%;
+    background: #cbf2f1;
+   
 }
-.b{
+.i{
     display:flex;
+}
+.content-info-driver {
+    border: 1px solid;
+    width: 300px;
+    margin-left: 5px;
+    background: #9ebfb763;
+}
+
+.name-driver {
+    font-weight: 700;
+    text-align: end;
+}
+
+.block-messeg-info {
+    width: 300px;
+    height: 80px;
+    position: relative;
+}
+
+.money-driver {
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.status-driver {
+    width: 150px;
+}
+
+.fuel-driver {
+    border: 1px solid;
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    top: 5px;
+    left: 200px;
 }

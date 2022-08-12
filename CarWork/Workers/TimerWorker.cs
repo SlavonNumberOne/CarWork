@@ -38,10 +38,18 @@ namespace CarWork.Client
             var car1 = new Car(ModelCar.Toyota, TypeCar.Minivan, 50m, 50m, engine1, 9.6m, 20, TypeFuel.Dizel, 20);
             var driver1 = new TaxiDriver("Bob", car1, 6m, 50, SexType.Male, 5000m);
 
+            var engine2 = new Engine(TypeFuel.Dizel, 2.8m);
+            var car2 = new Car(ModelCar.Toyota, TypeCar.Minivan, 50m, 50m, engine2, 9.6m, 130, TypeFuel.Dizel, 20);
+            var driver2 = new TaxiDriver("Joh", car2, 6m, 50, SexType.Male, 5000m);
+
             map.Cars.Add(car);
             map.Cars.Add(car1);
+            map.Cars.Add(car2);
+
             map.WorkDrivers.Add(driver);
             map.WorkDrivers.Add(driver1);
+            map.WorkDrivers.Add(driver2);
+
 
             map.DeliveryOrders.Add(GenerateOrder.Generate());
             map.DeliveryOrders.Add(GenerateOrder.Generate());

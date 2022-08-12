@@ -221,37 +221,42 @@ function newOrderClick() {
 }
 
 const infoElement = (driver) => {
-    const infoMessegeElement = document.getElementById("b");
+    const driversInfoElement = document.getElementById("i");
     
-    const driverElement = document.createElement("div");
-    driverElement.classList.add("new");
+    const driverInfoElement = document.createElement("div");
+    driverInfoElement.classList.add("content-info-driver");
 
     const nameHeaderElement = document.createElement("div");
-    nameHeaderElement.classList.add( "driver-name");
+    nameHeaderElement.classList.add( "name-driver");
     nameHeaderElement.id = "nm-" + driver.id;
     nameHeaderElement.innerHTML = "Name: " + driver.name;
 
+    const driverblockElement = document.createElement("div");
+    driverblockElement.classList.add("block-messeg-info");
+
     const moneyElement = document.createElement("div");
-    moneyElement.classList.add("money");
+    moneyElement.classList.add("money-driver");
     moneyElement.id = "mon-" + driver.id;
     moneyElement.innerHTML = "Money: " + driver.money + "грн";
 
     const orderStatusElement = document.createElement("div");
-    orderStatusElement.classList.add("status");
+    orderStatusElement.classList.add("status-driver");
     orderStatusElement.id = "ord-" + driver.id;
     orderStatusElement.innerHTML = "Status: " + driver.operation.status;
 
     const carFuelCapacityElement = document.createElement("div");
-    carFuelCapacityElement.classList.add("carFuelCapacity");
+    carFuelCapacityElement.classList.add("fuel-driver");
     carFuelCapacityElement.id = "ful-" + driver.id;
     carFuelCapacityElement.innerHTML = "Fuel: " + driver.car.fuelCapacity;
 
-    driverElement.appendChild(nameHeaderElement);
-    driverElement.appendChild(moneyElement);
-    driverElement.appendChild(orderStatusElement);
-    driverElement.appendChild(carFuelCapacityElement);
+    driverInfoElement.appendChild(nameHeaderElement);
+    driverblockElement.appendChild(moneyElement);
+    driverblockElement.appendChild(orderStatusElement);
+    driverblockElement.appendChild(carFuelCapacityElement);
+    driverInfoElement.appendChild(driverblockElement);
 
-    infoMessegeElement.appendChild(driverElement);
+    driversInfoElement.appendChild(driverInfoElement);
+
 }
 
 const updateInfoDriver = (driver) => {
