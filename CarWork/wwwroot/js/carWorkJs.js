@@ -145,8 +145,6 @@ const updateMapDrivers = (drivers) => {
     for (let driverId of driverIdsToDelete) {
         deleteDriver(driverId);
     }
-
-    
 }
 
 const updateMapFuels = (refuielings) => {
@@ -184,8 +182,6 @@ const updateMapOrder = (deliveryOrders) => {
         deleteOrder(deliveryOrderId);
     }
 }
-
-
 
 const signalRConnection = new signalR.HubConnectionBuilder()
     .withUrl(`/carworkhub`)
@@ -247,16 +243,26 @@ const infoElement = (driver) => {
     const carFuelCapacityElement = document.createElement("div");
     carFuelCapacityElement.classList.add("fuel-driver");
     carFuelCapacityElement.id = "ful-" + driver.id;
-    carFuelCapacityElement.innerHTML = "Fuel: " + driver.car.fuelCapacity;
+    
+
+    const carFuelColorElement = document.createElement("div");
+    carFuelColorElement.classList.add("minColor");
+    carFuelColorElement.id = "fulcolor-" + driver.id;
+
+    const carFuelNumberElement = document.createElement("div");
+    carFuelNumberElement.classList.add("number");
+    carFuelNumberElement.id = "numberfuel-" + driver.id;
+    carFuelNumberElement.innerHTML = driver.car.fuelCapacity;
 
     driverInfoElement.appendChild(nameHeaderElement);
     driverblockElement.appendChild(moneyElement);
     driverblockElement.appendChild(orderStatusElement);
+    carFuelCapacityElement.appendChild(carFuelColorElement);
+    carFuelCapacityElement.appendChild(carFuelNumberElement);
     driverblockElement.appendChild(carFuelCapacityElement);
+
     driverInfoElement.appendChild(driverblockElement);
-
     driversInfoElement.appendChild(driverInfoElement);
-
 }
 
 const updateInfoDriver = (driver) => {
@@ -269,7 +275,14 @@ const updateInfoDriver = (driver) => {
     const orderNewElement = document.getElementById("ord-" + driver.id);
     orderNewElement.innerHTML = "Status: " + driver.operation.status;
 
-    const fuelNewElement = document.getElementById("ful-" + driver.id);
-    fuelNewElement.innerHTML = "Fuel: " + driver.car.fuelCapacity;
+    const fuelNewElement = document.getElementById("numberfuel-" + driver.id);
+    fuelNewElement.innerHTML = driver.car.fuelCapacity;
+
+    const colorNewElement = document.getElementById("fulcolor-" + driver.id);
+    const fuelPercent = (driver.car.fuelCapacity / driver.car.tankCapacity) * 100;
+    colorNewElement.style.top = (100 - fuelPercent) + "%"; 
+
+    //const fuelNewColorElement = document.getElementById("fulcolor-" + driver.id);
+
 
 }
